@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizPop</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+  <!-- Background design -->
+  <div class="background">
+  
+  <span class="ball"></span>
+  <span class="ball"></span>
+  <span class="ball"></span>
+  <span class="ball"></span>
+  <span class="ball"></span>
+  <span class="ball"></span>
+</div>
+  <!--  -->
+<div class="card" id="card">
+  <div class="content">
+    
+
+  <h1 id="quiz-title">QuizPop</h1>
+  <div id="quiz-container">
+    <h2 id="question">Loading question...</h2>
+    <div id="answers">
+      <div class="container">
+      <button class="answer-button"></button>
+      <button class="answer-button"></button>
+      <button class="answer-button"></button>
+      <button class="answer-button"></button>
+    </div>
+  </div>
+    <button id="next-button" class="hide">Next</button>
+  </div>
+
+  </div>
+</div>
+
+
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+
+    if (category) {
+      document.getElementById("quiz-title").textContent = 
+        category.charAt(0).toUpperCase() + category.slice(1) + " QuizPop";
+      loadCategory(category);
+    } else {
+      document.getElementById("question").textContent = "No category selected.";
+    }
+  </script>
+</body>
+</html>
